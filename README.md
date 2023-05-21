@@ -1,2 +1,3 @@
 # Personal-Projects
-Ethan Wangs Personal Projects
+
+Some of my Personal Projects!
