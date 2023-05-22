@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Platformer</title>
+    <style>
+        #gameCanvas {
+            /*
+            border: 1px solid black;
+            */
+            background-image: url('background.png');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas" width="1900" height="910"></canvas>
+
+    <script>
+        // Game variables
+        var canvas = document.getElementById("gameCanvas");
+        var ctx = canvas.getContext("2d");
+        var player = { x: 900, y: 850, width: 50, height: 50, speed: 2, jumping: false, velocityY: 0, canJump: false};
+        var platforms = [{x: 800, y: 750, width: 150, height: 20 },
+                        {x: 500, y: 550, width: 150, height: 20 },
+                        {x: 700, y: 550, width: 150, height: 20 },
+                        {x: 1000, y: 650, width: 150, height: 20 }
+                    ];
+        var groundHeight = 14;
+        var wallWidth = 10;
+        var ceilingHeight = 10;
+
+        // Keyboard state
+        var keys = {};
+        document.addEventListener("keydown", function (e) {
+            keys[e.keyCode] = true;
+        });
+        document.addEventListener("keyup", function (e) {
+            delete keys[e.keyCode];
+        });
+
+        var backgroundImg = new Image();
+        backgroundImg.src = "background.png";
+        var grassImg = new Image();
+        grassImg.src = "Grass.png";
+
+        var imagesLoaded = 0;
+        backgroundImg.onload = function () {
+            imagesLoaded++;
+            if (imagesLoaded === 2) {
+                gameLoop();
+            }
+        };
+        grassImg.onload = function () {
+            imagesLoaded++;
+            if (imagesLoaded === 2) {
+                gameLoop();
+            }
+        };
+
+        function checkCollision(obj1, obj2) {
+            if (
+                obj1.y + obj1.height >= obj2.y && // Obj1 bottom edge below obj2 top edge
+                obj1.y <= obj2.y + obj2.height && // Obj1 top edge above obj2 bottom edge
+                obj1.x + obj1.width >= obj2.x && // Obj1 right edge past obj2 left edge
+                obj1.x <= obj2.x + obj2.width // Obj1 left edge past obj2 right edge
+            ) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        // Update game state
+        function update() {
+            // Player movement
+            if (keys[38] || keys[32]) { // Up arrow key or spacebar
+                if (!player.jumping) {
+                    player.jumping = true;
+                    player.velocityY = -player.speed * 2;
+                    player.canJump = false; // Enable jumping when player lands on a platform
+                }
+            }
+            if (keys[39]) { // Right arrow key
+                player.x += player.speed;
+            }
+            if (keys[37]) { // Left arrow key
+                player.x -= player.speed;
+            }
+
+            // Apply gravity
+            if (player.y < canvas.height - player.height) {
+                player.velocityY += 0.05;
+                player.y += player.velocityY;
+                player.canJump = false; // Disable jumping while in the air
+
+            } else if (player.y >= canvas.height - player.height) {
+                player.y = canvas.height - player.height;
+                player.jumping = false;
+                player.velocityY = 0;
+                player.canJump = true;
+            }
+
+            // Collision detection with ground
+            if (player.y + player.height > canvas.height - groundHeight) {
+                player.y = canvas.height - groundHeight - player.height;
+                player.jumping = false;
+                player.velocityY = 0;
+            }
+
+            // Collision detection with walls
+            if (player.x <= wallWidth) {
+                player.x = wallWidth;
+            } else if (player.x + player.width >= canvas.width - wallWidth) {
+                player.x = canvas.width - wallWidth - player.width;
+            }
+
+            // Collision detection with ceiling
+            if (player.y < ceilingHeight) {
+                player.y = ceilingHeight;
+                player.velocityY = 0;
+            }
+
+            // Collision detection with platform
+            for (var i = 0; i < platforms.length; i++) {
+                if (checkCollision(player, platforms[i])) {
+                    // Check if the player is colliding with the top side of the platform
+                    if (player.y + player.height <= platforms[i].y + player.velocityY) {
+                        player.y = platforms[i].y - player.height;
+                        player.jumping = false;
+                        player.velocityY = 0;
+                        player.canJump = true; // Enable jumping when player lands on a platform
+                    } else {
+                        // If the player is colliding with the bottom side of the platform, prevent them from passing through
+                        player.y = platforms[i].y + platforms[i].height;
+                        player.velocityY = 0;
+                    }
+                }
+            }
+        }
+
+        // Render game state
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height);
+
+            // Draw player
+            ctx.fillStyle = "red";
+            ctx.fillRect(player.x, player.y, player.width, player.height);
+
+            // Draw ground
+            ctx.fillStyle = "transparent";
+            ctx.drawImage(grassImg, 0, canvas.height - groundHeight, canvas.width, groundHeight);
+
+            // Draw walls
+            ctx.fillRect(0, 0, wallWidth, canvas.height);
+            ctx.fillRect(canvas.width - wallWidth, 0, wallWidth, canvas.height);
+
+            // Draw ceiling
+            ctx.fillRect(0, 0, canvas.width, ceilingHeight);
+
+            // Draw the grass texture on the platform
+            for (var i = 0; i < platforms.length; i++) {
+
+                ctx.drawImage(grassImg, platforms[i].x, platforms[i].y, platforms[i].width, platforms[i].height);
+            }
+        }
+
+        // Game loop
+        function gameLoop() {
+            update();
+            draw();
+            requestAnimationFrame(gameLoop);
+        }
+
+        // Start the game
+        gameLoop();
+    </script>
+</body>
+</html>
