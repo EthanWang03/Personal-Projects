@@ -19,6 +19,7 @@ def display_weather_data(data):
         print(f"Wind Speed: {data['wind']['speed']} m/s")
         print(f"Weather Conditions: {data['weather'][0]['description']}")
 
+#upaded to print in Celsius
 def main():
     api_key = "d9d94b6807846f7c9dae85931da43d6d" #API key
     city = input("Enter a city name: ")
