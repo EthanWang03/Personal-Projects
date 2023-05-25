@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Drawing Program</title>
+    <style>
+      #canvas {
+        border: 1px solid #000;
+        border-radius: 3px;
+      }
+
+      .file-input-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .file-input-container input[type="file"] {
+        position: absolute;
+        top: 10px;
+        opacity: 0;
+        width: 0%;
+        height: 0%;
+      }
+
+      .file-input-container label {
+        margin-top: 5px;
+        display: inline-block;
+        border: 1px solid black;
+        padding: 8px 16px;
+        border-radius: 3px;
+        background-color: white;
+        color: black;
+        cursor: pointer;
+      }
+
+      #buttonContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      #buttonContainer button {
+        margin-right: 10px;
+      }
+
+      #clearButton {
+        background-color: white;
+        color: black;
+        border: 1px solid black;
+        padding: 5px 21px;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      #smallButton {
+        background-color: white;
+        color: black;
+        padding: 5px 21px;
+        border: 1px solid black;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      #mediumButton {
+        background-color: white;
+        color: black;
+        padding: 5px 21px;
+        border: 1px solid black;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      #largeButton {
+        background-color: white;
+        color: black;
+        padding: 5px 21px;
+        border: 1px solid black;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      #pinkButton {
+        background-color: pink;
+        color: white;
+        padding: 13px 20px;
+        border: 1px solid black;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      #redButton {
+        background-color: red;
+        color: white;
+        padding: 13px 20px;
+        border: 1px solid black;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      #orangeRedButton {
+        background-color: orangered;
+        color: white;
+        padding: 13px 20px;
+        border: 1px solid black;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      #orangeButton {
+        background-color: orange;
+        color: white;
+        padding: 13px 20px;
+        border: 1px solid black;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      #yellowButton {
+        background-color: yellow;
+        color: white;
+        padding: 13px 20px;
+        border: 1px solid black;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      #yellowGreenButton {
+        background-color: yellowgreen;
+        color: white;
+        padding: 13px 20px;
+        border: 1px solid black;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      #greenButton {
+        background-color: green;
+        color: white;
+        padding: 13px 20px;
+        border: 1px solid black;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      #lightBlueButton {
+        background-color: lightskyblue;
+        color: white;
+        padding: 13px 20px;
+        border: 1px solid black;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      #blueButton {
+        background-color: blue;
+        color: white;
+        padding: 13px 20px;
+        border: 1px solid black;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      #purpleButton {
+        background-color: purple;
+        color: white;
+        padding: 13px 20px;
+        border: 1px solid black;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      #brownButton {
+        background-color: #964B00;
+        color: white;
+        padding: 13px 20px;
+        border: 1px solid black;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      #blackButton {
+        background-color: black;
+        color: white;
+        padding: 13px 20px;
+        border: 1px solid black;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      #greyButton {
+        background-color: grey;
+        color: white;
+        padding: 13px 20px;
+        border: 1px solid black;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      #whiteButton {
+        background-color: white;
+        color: white;
+        padding: 13px 20px;
+        border: 1px solid black;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="drawingArea">
+      <canvas id="canvas" width="1900" height="800"></canvas>
+      <div id="buttonContainer">
+        <button id="clearButton">Clear</button>
+        <button id="smallButton">Small</button>
+        <button id="mediumButton">Medium</button>
+        <button id="largeButton">Large</button>
+        <button id="redButton"></button>
+        <button id="orangeRedButton"></button>
+        <button id="orangeButton"></button>
+        <button id="yellowButton"></button>
+        <button id="yellowGreenButton"></button>
+        <button id="greenButton"></button>
+        <button id="lightBlueButton"></button>
+        <button id="blueButton"></button>
+        <button id="purpleButton"></button>
+        <button id="pinkButton"></button>
+        <button id="brownButton"></button>
+        <button id="blackButton"></button>
+        <button id="greyButton"></button>
+        <button id="whiteButton"></button>
+      </div>
+      <div class="file-input-container">
+        <input type="file" id="uploadInput" accept="image/*">
+        <label for="uploadInput">Upload Image</label>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
