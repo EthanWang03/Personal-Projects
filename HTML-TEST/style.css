@@ -1,0 +1,155 @@
+body{
+    background-color: rgb(254,251,234);
+    height: 100vh;
+    width: 100vw;
+    place-items: center;
+    margin: 0px;
+    overflow: hidden;
+}
+
+.gallery {
+    height: 100%;
+    width: 100%;  
+    position: relative;
+}
+
+.tile {
+    border-radius: 1vmax;
+    position: absolute;
+    transition: left,top;
+    transition-duration: 750ms;
+    transition-timing-function: ease-in-out;
+}
+
+.tile:nth-child(1) {
+    background-color: #FF5C5C;
+    height: 14.25%;
+    width: 16%;
+    left: 21%;
+    top: 66%;
+    /*
+    left: 34%;
+    top: 6%;
+    */
+}
+
+.tile:nth-child(2){
+    background-color: #e03c31;
+    height: 28.5%;
+    width: 14%;
+    left: 71%;
+    top: 25.65%;
+    /*
+    left: 30%;
+    top: 9%;
+    */
+}
+
+.tile:nth-child(3) {
+    background-color: #ff5252;
+    height: 14.25%;
+    width: 21.3%;
+    left: 2.84%;
+    top: 2.85%;
+    /*
+    left: 32%;
+    top: 9%;
+    */
+}
+
+.tile:nth-child(4) {
+    background-color: #e03c31;
+    height: 34.2%;
+    width: 11.36%;
+    left: 2.84%;
+    top: 76.95%;
+    /*
+    left: 38%;
+    top: 10%;
+    */
+}
+
+.tile:nth-child(5) {
+    background-color: #a70000;
+    height: 28.5%;
+    width: 35.5%;
+    left: -14.2%;
+    top: 34.2%;
+    /*
+    left: 24%;
+    top: 12%;
+    */
+}
+
+.tile:nth-child(6) {
+    background-color: #ff0000;
+    height: 45.6%;
+    width: 9.95%;
+    left: 88.05%;
+    top: -28.5%;
+    /*
+    left: 33%;
+    top: 15%;
+    */
+}
+
+.tile:nth-child(7) {
+    background-color: #ff5252;
+    height: 45.6%;
+    width: 11.36%;
+    left: 35.5%;
+    top: -19.95%;
+    /*
+    left: 27%;
+    top: 9%;
+    */
+}
+
+.tile:nth-child(8) {
+    background-color: #FF5C5C;
+    height: 28.5%;
+    width: 18.46%;
+    left: 35.5%;
+    top: 85.5%;
+    /*
+    left: 30%;
+    top: 18%;
+    */
+}
+
+.tile:nth-child(9) {
+    background-color: #e03c31;
+    height: 14.25%;
+    width: 7.1%;
+    left: 92.3%;
+    top: 57%;
+    /*
+    left: 41%;
+    top: 20%;
+    */
+}
+
+
+.tile:nth-child(10) {
+    background-color: #ff0000;
+    height: 28.5%;
+    width: 9.94%;
+    left: 78.1%;
+    top: 74.1%;
+    /*
+    left: 45%;
+    top: 9%;
+    */
+}
+
+.tile:nth-child(11) {
+    background-color: #e03c31;
+    height: 14.25%;
+    width: 15.62%;
+    left: 61.06%;
+    top: -2.85%;
+    /*
+    left: 38%;
+    top: 6%;
+    */
+}
