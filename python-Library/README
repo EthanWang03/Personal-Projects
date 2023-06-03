@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Online Bookstore
 The Online Bookstore is a Python program that simulates an online bookstore where users can browse and order books. It is implemented using object-oriented programming principles in Python.
 
@@ -22,4 +23,30 @@ Click the "Add to Cart" button to add a book to the shopping cart.
 Click the "Remove" button to remove a book from the shopping cart.
 Click the "Show Cart" button to view the contents of the shopping cart in a pop-up window.
 Click the "Place Order" button to place the order and receive an order confirmation.
+=======
+Online Bookstore
+The Online Bookstore is a Python program that simulates an online bookstore where users can browse and order books. It is implemented using object-oriented programming principles in Python.
+
+Features
+Display a list of available books with their details such as title, author, category, and price.
+Add books to the shopping cart.
+Remove books from the shopping cart.
+View the contents of the shopping cart.
+Place an order and receive an order confirmation.
+Project Structure
+The project consists of the following files:
+
+book.py: Defines the Book class that represents a book with attributes like title, author, category, and price.
+order.py: Defines the Order class that represents an order and generates an order confirmation.
+shoppingcart.py: Defines the ShoppingCart class that manages the shopping cart functionality.
+main.py: Contains the main program used to test the classes
+ui.py contains the user interface (UI) using the Tkinter library.
+
+Usage
+Browse the available books displayed in the UI.
+Click the "Add to Cart" button to add a book to the shopping cart.
+Click the "Remove" button to remove a book from the shopping cart.
+Click the "Show Cart" button to view the contents of the shopping cart in a pop-up window.
+Click the "Place Order" button to place the order and receive an order confirmation.
+>>>>>>> 792524879c874e809fa7c08a6cc1769418bc7759
 Click the "Clear Cart" button to empty the shopping cart.
