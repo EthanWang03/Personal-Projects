@@ -22,7 +22,7 @@ body{
 }
 
 .tile:nth-child(1) {
-    background-color: #FF5C5C;
+    background-color: #ff0000;
     height: 14.25%;
     width: 16%;
     left: 21%;
@@ -118,7 +118,7 @@ body{
 }
 
 .tile:nth-child(9) {
-    background-color: #e03c31;
+    background-color: #e01e37;
     height: 14.25%;
     width: 7.1%;
     left: 92.3%;
