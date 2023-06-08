@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow:400,500,700');
+
+:root {
+    --background-color: rgb(13,13,13);
+    --border-color: rgb(255, 215, 0);
+    --highlight-color: rgb(255, 26, 26);
+    --text-color: rgb(255, 255, 255);
+}
+
+body {
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0px;
+    overflow: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, a, p, span {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    color: var(--text-color)
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--highlight-color);
+    text-decoration: underline;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+}
+
+nav > .nav-section {
+    padding: 3rem 2rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+#nav-space-section, #nav-link-section, 
+#nav-icon-section, #nav-search-section {
+    border-left: 1px solid var(--border-color);
+}
+
+#nav-burger-section, #nav-search-section > a > i {
+    font-size: 1.5rem;
+}
+
+#nav-link-section {
+    gap: 3rem;
+}
+
+#nav-icon-section {
+    gap: 3rem;
+}
+
+#nav-space-section,
+#nav-link-section {
+    flex-basis: 30.88%;
+}
+
+#nav-icon-section,
+#nav-search-section {
+    flex-grow: 1;
+}
+
+main {
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+main > article {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 2fr 1fr;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    transition: transform 400ms ease;  
+}
+
+main > article > .article-section {
+    height: 100%;
+    display: flex;
+}
+
+main > article > .article-description-section,
+main > article > .article-nav-section {
+    border-left: 1px solid var(--border-color);
+}
+
+main > article > .article-title-section,
+main > article > .article-nav-section {
+    border-top: 1px solid var(--border-color);
+}
+
+main > article:first-child > .article-image-section {
+    background-image: url("https://scontent-ord5-2.xx.fbcdn.net/v/t1.6435-9/59785933_2372949672758932_2273955677359570944_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=e3f864&_nc_ohc=9U7Fv5NNxPoAX902TfX&_nc_ht=scontent-ord5-2.xx&oh=00_AfBx7NKjkqha5TQu164IEKPGivgcxUSfF_vP87B3861pDQ&oe=64A58C18");
+}
+
+main > article:nth-child(2) > .article-image-section {
+    background-image: url("https://admission.uoguelph.ca/sites/default/files/images/HomepageBanner_2018.jpg");
+}
+
+main > article:nth-child(3) > .article-image-section {
+    background-image: url("https://gryphons.ca/images/2022/9/24/2R6IMG-5283_KZON6.jpg");
+}
+
+main > article > .article-image-section {
+    background-position: center;
+    background-size: cover;
+}
+
+main > article:nth-child(2) > .article-image-section {
+    background-position: -320px center;
+    background-size: cover;
+}
+
+main > article > .article-title-section {
+    display: flex;
+    align-items: center;
+    padding: 2rem 4rem;
+}
+
+main > article > .article-title-section > .text-wrapper {
+    flex-grow: 1;
+}
+
+main > article > .article-title-section > .text-wrapper > h1 {
+    font-size: 3.5rem;
+    line-height: 3rem;
+    margin: 0px;
+    text-transform: uppercase;
+}
+
+main > article > .article-title-section > .text-wrapper > h2 {
+    font-size: 2.5rem;
+    line-height: 3.5rem;
+    margin: 0px;
+}
+
+main > article > .article-title-section > img {
+    margin-left: 1rem;
+}
+
+main > article:nth-child(3) > .article-title-section > img {
+    margin-left: 1rem;
+    width: 300px;
+}
+
+main > article > .article-description-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 4rem; 
+}
+
+main > article > .article-description-section > p {
+    font-size: 1.25em;
+}
+
+main > article > .article-nav-section > .article-nav-button {
+    background-color: transparent;
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    color: var(--text-color);
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+main > article > .article-nav-section > .article-nav-button:hover {
+    color: var(--highlight-color);
+}
+
+main > article > .article-nav-section > .article-nav-button:nth-child(2) {
+    border-left: 1px solid var(--border-color);
+}
+
+main > article[data-status="inactive"] {
+    transform: translateX(-100%);
+    transition: none;
+}
+  
+main > article[data-status="active"] {
+    transform: translateX(0%);
+}
+  
+main > article[data-status="before"] {
+    transform: translateX(-100%);
+}
+  
+main > article[data-status="after"] {
+    transform: translateX(100%);
+}
+  
+main > article[data-status="becoming-active-from-before"] {
+    transform: translateX(-100%);
+    transition: none;
+}
+  
+main > article[data-status="becoming-active-from-after"] {
+    transform: translateX(100%);
+    transition: none;
+}
+
+#nav-burger-section {
+    position: relative;
+    display: inline-block;
+}
+
+.burger-checkbox {
+    display: none;
+}
+
+.burger-icon {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    display: block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: relative;
+    transition: opacity 0.5s;
+    z-index: 2;
+}
+
+.menu-x {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    left: 10px;
+    top: 15px;
+    z-index: 3;
+}
+
+.burger-icon:hover {
+    color: var(--highlight-color);
+}
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 15%;
+    height: 100%;
+    background-color: var(--background-color);
+    transition: transform 0.5s;
+    z-index: 1;
+}
+
+.menu-overlay::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5px;
+    height: 100%;
+    background-color: var(--border-color);
+    transition: transform 0s;
+}
+
+.menu-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    color: var(--text-color);
+}
+
+.menu-bar {
+    font-size: 2rem;
+    line-height: 3.5rem;
+    margin: 0px;
+    margin-top: 85px;
+    text-align: left;
+}
+
+.menu-bar a {
+    display: block;
+}
+
+.menu-grid {
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-gap: 5px;
+}
+
+.menu-grid a {
+    color: var(--text-color);
+    padding: 5px;
+}
+
+.burger-checkbox:checked ~ .menu-overlay {
+    transform: translateX(0);
+}
+
+.burger-checkbox:checked ~ .burger-icon {
+    opacity: 0;
+}
+
+.burger-checkbox:not(:checked) ~ .menu-overlay {
+    transform: translateX(-100%);
+}
+
+.burger-checkbox:not(:checked) ~ .burger-icon {
+    opacity: 1;
+}
